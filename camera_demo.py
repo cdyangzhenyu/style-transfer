@@ -16,6 +16,7 @@ def switchChannel(raw_img, i, j):
 
 def adjustImg(img):
     temp = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
+    temp = cv2.resize(temp, (480, 640))
     # temp = cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE)
     cv2.imshow("raw", temp)
     switchChannel(temp, 0, 2)
@@ -55,7 +56,7 @@ def showImg(img):
     switchChannel(img, 0, 2)
 
     cropResult = cropImg(img, 9, 16)
-    
+    cropResult = cv2.resize(cropResult, (1080, 1920))
     cv2.imshow('result', cropResult)
     adjustImg# cv2.waitKey(-1)
 
@@ -154,6 +155,8 @@ def camera():
         "shipwreck",
         "wave",
         "the_scream"
+        "tangyan",
+        "shuimo",
     ]
 
     idx = 0

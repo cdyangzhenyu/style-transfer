@@ -47,7 +47,8 @@ class StyleTransferTester:
                 graph_def.ParseFromString(f.read())
                 self.sess.graph.as_default()
                 tf.import_graph_def(graph_def)
-            self.y_hat = tf.get_default_graph().get_tensor_by_name("add_37:0")
+
+            #self.y_hat = tf.get_default_graph().get_tensor_by_name("mul_16:0")
         # get transformed image
         start = time.time()
         output = self.sess.run(self.y_hat, feed_dict={self.x: self.x0})
